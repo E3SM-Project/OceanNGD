@@ -1611,8 +1611,19 @@ contains
                                   landIceHeatFluxField, &
                                   landIceFractionField, &
                                   windSpeed10mField, &
-                                  waveStokesDriftZonalField, &
-                                  waveStokesDriftMeridionalField
+                                  stokesDriftZonalWavenumber1Field, &
+                                  stokesDriftMeridionalWavenumber1Field, &
+                                  stokesDriftZonalWavenumber2Field, &
+                                  stokesDriftMeridionalWavenumber2Field, &
+                                  stokesDriftZonalWavenumber3Field, &
+                                  stokesDriftMeridionalWavenumber3Field, &
+                                  stokesDriftZonalWavenumber4Field, &
+                                  stokesDriftMeridionalWavenumber4Field, &
+                                  stokesDriftZonalWavenumber5Field, &
+                                  stokesDriftMeridionalWavenumber5Field, &
+                                  stokesDriftZonalWavenumber6Field, &
+                                  stokesDriftMeridionalWavenumber6Field, &
+                                  significantWaveHeightField
                                   !landIcePressureField
 
    type (field2DReal), pointer :: iceFluxPhytoCField, &
@@ -1648,8 +1659,19 @@ contains
                                                landIceHeatFlux, &
                                                landIceFraction, &
                                                windSpeed10m, &
-                                               waveStokesDriftZonal, &
-                                               waveStokesDriftMeridional
+                                               stokesDriftZonalWavenumber1, &
+                                               stokesDriftMeridionalWavenumber1, &
+                                               stokesDriftZonalWavenumber2, &
+                                               stokesDriftMeridionalWavenumber2, &
+                                               stokesDriftZonalWavenumber3, &
+                                               stokesDriftMeridionalWavenumber3, &
+                                               stokesDriftZonalWavenumber4, &
+                                               stokesDriftMeridionalWavenumber4, &
+                                               stokesDriftZonalWavenumber5, &
+                                               stokesDriftMeridionalWavenumber5, &
+                                               stokesDriftZonalWavenumber6, &
+                                               stokesDriftMeridionalWavenumber6, &
+                                               significantWaveHeight
                                                !landIcePressure
 
    real (kind=RKIND), dimension(:), pointer :: latCell
@@ -1725,8 +1747,19 @@ contains
       call mpas_pool_get_field(forcingPool, 'iceRunoffFlux', iceRunoffFluxField)
       call mpas_pool_get_field(forcingPool, 'removedRiverRunoffFlux', removedRiverRunoffFluxField)
       call mpas_pool_get_field(forcingPool, 'removedIceRunoffFlux', removedIceRunoffFluxField)
-      call mpas_pool_get_field(forcingPool, 'waveStokesDriftZonal', waveStokesDriftZonalField)
-      call mpas_pool_get_field(forcingPool, 'waveStokesDriftMeridional', waveStokesDriftMeridionalField)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber1', stokesDriftZonalWavenumber1Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber1', stokesDriftMeridionalWavenumber1Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber2', stokesDriftZonalWavenumber2Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber2', stokesDriftMeridionalWavenumber2Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber3', stokesDriftZonalWavenumber3Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber3', stokesDriftMeridionalWavenumber3Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber4', stokesDriftZonalWavenumber4Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber4', stokesDriftMeridionalWavenumber4Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber5', stokesDriftZonalWavenumber5Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber5', stokesDriftMeridionalWavenumber5Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber6', stokesDriftZonalWavenumber6Field)
+      call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber6', stokesDriftMeridionalWavenumber6Field)
+      call mpas_pool_get_field(forcingPool, 'significantWaveHeight', significantWaveHeightField)
 
       call mpas_pool_get_field(forcingPool, 'landIceFreshwaterFlux', landIceFreshwaterFluxField)
       call mpas_pool_get_field(forcingPool, 'landIceHeatFlux', landIceHeatFluxField)
@@ -1768,8 +1801,19 @@ contains
       landIceInterfaceTracers => landIceInterfaceTracersField % array
       landIceFraction => landIceFractionField % array
       windSpeed10m => windSpeed10mField % array
-      waveStokesDriftZonal => waveStokesDriftZonalField % array
-      waveStokesDriftMeridional => waveStokesDriftMeridionalField % array
+      stokesDriftZonalWavenumber1 => stokesDriftZonalWavenumber1Field % array
+      stokesDriftMeridionalWavenumber1 => stokesDriftMeridionalWavenumber1Field % array
+      stokesDriftZonalWavenumber2 => stokesDriftZonalWavenumber2Field % array
+      stokesDriftMeridionalWavenumber2 => stokesDriftMeridionalWavenumber2Field % array
+      stokesDriftZonalWavenumber3 => stokesDriftZonalWavenumber3Field % array
+      stokesDriftMeridionalWavenumber3 => stokesDriftMeridionalWavenumber3Field % array
+      stokesDriftZonalWavenumber4 => stokesDriftZonalWavenumber4Field % array
+      stokesDriftMeridionalWavenumber4 => stokesDriftMeridionalWavenumber4Field % array
+      stokesDriftZonalWavenumber5 => stokesDriftZonalWavenumber5Field % array
+      stokesDriftMeridionalWavenumber5 => stokesDriftMeridionalWavenumber5Field % array
+      stokesDriftZonalWavenumber6 => stokesDriftZonalWavenumber6Field % array
+      stokesDriftMeridionalWavenumber6 => stokesDriftMeridionalWavenumber6Field % array
+      significantWaveHeight => significantWaveHeightField % array
       !landIcePressure => landIcePressureField % array
 
       call mpas_pool_get_array(meshPool, 'latCell', latCell)
@@ -1924,11 +1968,44 @@ contains
            iceFraction(i) = x2o_o % rAttr(index_x2o_Si_ifrac, n)
         end if
 
-        if ( waveStokesDriftZonalField % isActive ) then
-           waveStokesDriftZonal(i) = x2o_o % rAttr(index_x2o_Sw_ustokes, n)
+        if ( stokesDriftZonalWavenumber1Field % isActive ) then
+           stokesDriftZonalWavenumber1(i) = x2o_o % rAttr(index_x2o_Sw_ustokes_wavenumber_1, n)
         end if
-        if ( waveStokesDriftMeridionalField % isActive ) then
-           waveStokesDriftMeridional(i) = x2o_o % rAttr(index_x2o_Sw_vstokes, n)
+        if ( stokesDriftMeridionalWavenumber1Field % isActive ) then
+           stokesDriftMeridionalWavenumber1(i) = x2o_o % rAttr(index_x2o_Sw_vstokes_wavenumber_1, n)
+        end if
+        if ( stokesDriftZonalWavenumber2Field % isActive ) then
+           stokesDriftZonalWavenumber2(i) = x2o_o % rAttr(index_x2o_Sw_ustokes_wavenumber_2, n)
+        end if
+        if ( stokesDriftMeridionalWavenumber2Field % isActive ) then
+           stokesDriftMeridionalWavenumber2(i) = x2o_o % rAttr(index_x2o_Sw_vstokes_wavenumber_2, n)
+        end if
+        if ( stokesDriftZonalWavenumber3Field % isActive ) then
+           stokesDriftZonalWavenumber3(i) = x2o_o % rAttr(index_x2o_Sw_ustokes_wavenumber_3, n)
+        end if
+        if ( stokesDriftMeridionalWavenumber3Field % isActive ) then
+           stokesDriftMeridionalWavenumber3(i) = x2o_o % rAttr(index_x2o_Sw_vstokes_wavenumber_3, n)
+        end if
+        if ( stokesDriftZonalWavenumber4Field % isActive ) then
+           stokesDriftZonalWavenumber4(i) = x2o_o % rAttr(index_x2o_Sw_ustokes_wavenumber_4, n)
+        end if
+        if ( stokesDriftMeridionalWavenumber4Field % isActive ) then
+           stokesDriftMeridionalWavenumber4(i) = x2o_o % rAttr(index_x2o_Sw_vstokes_wavenumber_4, n)
+        end if
+        if ( stokesDriftZonalWavenumber5Field % isActive ) then
+           stokesDriftZonalWavenumber5(i) = x2o_o % rAttr(index_x2o_Sw_ustokes_wavenumber_5, n)
+        end if
+        if ( stokesDriftMeridionalWavenumber5Field % isActive ) then
+           stokesDriftMeridionalWavenumber5(i) = x2o_o % rAttr(index_x2o_Sw_vstokes_wavenumber_5, n)
+        end if
+        if ( stokesDriftZonalWavenumber6Field % isActive ) then
+           stokesDriftZonalWavenumber6(i) = x2o_o % rAttr(index_x2o_Sw_ustokes_wavenumber_6, n)
+        end if
+        if ( stokesDriftMeridionalWavenumber6Field % isActive ) then
+           stokesDriftMeridionalWavenumber6(i) = x2o_o % rAttr(index_x2o_Sw_vstokes_wavenumber_6, n)
+        end if
+        if ( significantWaveHeightField % isActive ) then
+           significantWaveHeight(i) = x2o_o % rAttr(index_x2o_Sw_Hs, n)
         end if
 
         if (config_cvmix_kpp_use_theory_wave) then
@@ -2070,8 +2147,19 @@ contains
    call mpas_pool_get_field(forcingPool, 'atmosphericPressure', atmosphericPressureField)
    call mpas_pool_get_field(forcingPool, 'seaIcePressure', seaIcePressureField)
    call mpas_pool_get_field(forcingPool, 'iceFraction', iceFractionField)
-   call mpas_pool_get_field(forcingPool, 'waveStokesDriftZonal', waveStokesDriftZonalField)
-   call mpas_pool_get_field(forcingPool, 'waveStokesDriftMeridional', waveStokesDriftMeridionalField)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber1', stokesDriftZonalWavenumber1Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber1', stokesDriftMeridionalWavenumber1Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber2', stokesDriftZonalWavenumber2Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber2', stokesDriftMeridionalWavenumber2Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber3', stokesDriftZonalWavenumber3Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber3', stokesDriftMeridionalWavenumber3Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber4', stokesDriftZonalWavenumber4Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber4', stokesDriftMeridionalWavenumber4Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber5', stokesDriftZonalWavenumber5Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber5', stokesDriftMeridionalWavenumber5Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftZonalWavenumber6', stokesDriftZonalWavenumber6Field)
+   call mpas_pool_get_field(forcingPool, 'stokesDriftMeridionalWavenumber6', stokesDriftMeridionalWavenumber6Field)
+   call mpas_pool_get_field(forcingPool, 'significantWaveHeight', significantWaveHeightField)
 
    call mpas_pool_get_field(forcingPool, 'landIceFreshwaterFlux', landIceFreshwaterFluxField)
    call mpas_pool_get_field(forcingPool, 'landIceHeatFlux', landIceHeatFluxField)
@@ -2175,11 +2263,44 @@ contains
    if ( iceFractionField % isActive ) then
       call mpas_dmpar_exch_halo_field(iceFractionField)
    end if
-   if ( waveStokesDriftZonalField % isActive ) then
-      call mpas_dmpar_exch_halo_field(waveStokesDriftZonalField)
+   if ( stokesDriftZonalWavenumber1Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftZonalWavenumber1Field)
    end if
-   if ( waveStokesDriftMeridionalField % isActive ) then
-      call mpas_dmpar_exch_halo_field(waveStokesDriftMeridionalField)
+   if ( stokesDriftMeridionalWavenumber1Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftMeridionalWavenumber1Field)
+   end if
+   if ( stokesDriftZonalWavenumber2Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftZonalWavenumber2Field)
+   end if
+   if ( stokesDriftMeridionalWavenumber2Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftMeridionalWavenumber2Field)
+   end if
+   if ( stokesDriftZonalWavenumber3Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftZonalWavenumber3Field)
+   end if
+   if ( stokesDriftMeridionalWavenumber3Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftMeridionalWavenumber3Field)
+   end if
+   if ( stokesDriftZonalWavenumber4Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftZonalWavenumber4Field)
+   end if
+   if ( stokesDriftMeridionalWavenumber4Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftMeridionalWavenumber4Field)
+   end if
+   if ( stokesDriftZonalWavenumber5Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftZonalWavenumber5Field)
+   end if
+   if ( stokesDriftMeridionalWavenumber5Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftMeridionalWavenumber5Field)
+   end if
+   if ( stokesDriftZonalWavenumber6Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftZonalWavenumber6Field)
+   end if
+   if ( stokesDriftMeridionalWavenumber6Field % isActive ) then
+      call mpas_dmpar_exch_halo_field(stokesDriftMeridionalWavenumber6Field)
+   end if
+   if ( significantWaveHeightField % isActive ) then
+      call mpas_dmpar_exch_halo_field(significantWaveHeightField)
    end if
 
    if ( landIceFreshwaterFluxField % isActive ) then
